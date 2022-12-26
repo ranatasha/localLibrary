@@ -1,0 +1,16 @@
+dialog#handout-modal
+    div.modal.handout-modal
+        div.modal-content
+            div.modal-controls
+                p.modal-header Choose reader:
+                button.controls-btn-close(onClick="closeHandOutModal(this)")
+                    i.fa.fa-times-circle-o.fa-2x(aria-hidden=true)
+            div.modal-info
+                div.modal-info-item
+                    p Reader:
+                    select#reader-select
+                div.modal-info-item
+                    p Return date:
+                    input(type="date")#handOutReturnDate
+                div#validation-error
+                button(class="buttonModal", onclick="getModalData()") Hand out

@@ -1,0 +1,39 @@
+.home-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: flex-end;
+    min-height: 500px;
+    margin-top: 15%;
+}
+.greeting {
+    font-style: italic;
+    font-size: 40px;
+    font-weight: 100;
+}
+
+.features {
+    margin-top: 70px;
+    padding: 50px 45px;
+    background-color: #BCB7B7;
+    color: #FFFFFF;
+    border: #000 solid 1px;
+    font-style: italic;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.features-header {
+    text-decoration: underline;
+    font-size: 28px;
+    line-height: 38px;
+}
+.features-list{
+    margin-left:38px;
+    line-height: 38px;
+}
+i {
+    color: black;
+}
+

@@ -1,0 +1,29 @@
+html(lang="en")
+    head
+        title HomeLibrary
+        meta(charset="utf-8")
+        script(src="https://kit.fontawesome.com/ac0925c6df.js" crossorigin="anonymous")
+        link(rel="stylesheet", href="../public/assets/main.css")
+        link(rel="stylesheet", href="/public/assets/home.css")
+        link(href="https://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100", rel='stylesheet', type='text/css')
+    body
+        div.wrapper
+            div.mainWindow
+                nav.menu
+                    div.menu-container
+                        div.menu-btn
+                            i.fa.fa-home.fa-1x(aria-hidden=true)
+                            a(href="http://localhost:8080/home") Home
+                        div.menu-btn
+                            i.fa.fa-book.fa-1x(aria-hidden=true)
+                            a(href="http://localhost:8080/catalog") Catalog
+                div.home-window
+                    div.greeting
+                        p Welcome to the HomeLibrary's Page!
+                    div.features
+                        p.features-header Application features:
+                        ul.features-list
+                            li Get a list of library books with the ability to filter. Click on the&ensp;#[i.fa.fa-book(aria-hidden=true)] CATALOG button to show the list.
+                            li Find out information about each book
+                            li Give a book to a reader
+                            li Return the book to the library

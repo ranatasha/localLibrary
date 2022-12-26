@@ -1,0 +1,55 @@
+html(lang="en")
+    head
+        title Catalog
+        meta(charset="utf-8")
+        script(src="https://kit.fontawesome.com/ac0925c6df.js" crossorigin="anonymous")
+        link(rel="stylesheet", href="../public/assets/main.css")
+        link(rel="stylesheet", href="/public/assets/catalog.css")
+        link(rel="stylesheet", href="/public/assets/dialog.css")
+        link(href="https://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100", rel='stylesheet', type='text/css')
+        script(src='/public/scripts/catalogScript.js')
+    body
+        div.mainWindow
+            div.mainWindow-frame
+                nav.menu
+                    div.menu-container
+                        div.menu-btn
+                            i.fa.fa-home.fa-1x(aria-hidden=true)
+                            a(href="http://localhost:8080/home") Home
+                        div.menu-btn
+                            i.fa.fa-book.fa-1x(aria-hidden=true)
+                            a(href="http://localhost:8080/catalog") Catalog
+                header
+                    div.header-left
+                        p Catalog
+                    div.header-item
+                        i.fa.fa-plus-circle.fa-1xl(aria-hidden=true)
+                        button.addBtn(onClick="openAddModal()") Add
+                    div.header-item.filter
+                        i.fa.fa-filter.fa-1x(aria-hidden=true)
+                        label.labelBtns filter by:
+                        div#filter-buttons
+                            button.filter#defaultFilter None
+                            button.filter#overdueFilter Overdue
+                            button.filter#inStockFilter In stock
+                div.listBlock
+                    each book, index in books
+                        div.book-item
+                            div.book-name
+                                p.book-title #{book.title}&nbsp;
+                                p.book-author – #{book.author}
+                            div.book-btns
+                                div.book-btns-item
+                                    i.fa.fa-file-text-o.fa-1x(aria-hidden=true)
+                                    button(onClick='openBookInfo("'+book.id+'")') Info
+                                div.book-btns-item
+                                    i.fa.fa-pencil.fa-1x(aria-hidden=true)
+                                    button(onClick='openEditModal("'+book.id+'")') Edit
+                                div.book-btns-item
+                                    i.fa.fa-trash.fa-1x(aria-hidden=true)
+                                    button(onClick='removeBook("'+book.id+'")') Remove
+                    else
+                        div.book-item
+                            div.book-name
+                                p There are no books in the HomeLibrary
+                include includes/editModal

@@ -1,0 +1,18 @@
+dialog#reader-modal
+    div.modal.reader-modal
+        div.modal-content
+            div.modal-controls
+                p.modal-header Reader's Info
+                button.controls-btn-close(onClick="closeModal(this)")
+                    i.fa.fa-times-circle-o.fa-2x(aria-hidden=true)
+            div.modal-info
+                div.modal-info-item
+                    p Name:
+                    span#readerName
+                div.modal-info-item
+                    p Surname:
+                    span#readerSurname
+                div.modal-info-item
+                    p Return Date:
+                    span#returnDate
+

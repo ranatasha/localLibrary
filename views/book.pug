@@ -1,0 +1,73 @@
+- let bookFieldsHeaders = ['ID','Title', 'Author', 'Release date', 'Has reader', 'Return date', 'In stock'];
+- let index = 0;
+html(lang="en")
+    head
+        title Book
+        meta(charset="utf-8")
+        script(src="https://kit.fontawesome.com/ac0925c6df.js" crossorigin="anonymous")
+        link(rel="stylesheet", href="../public/assets/main.css")
+        link(rel="stylesheet", href="/public/assets/book.css")
+        link(rel="stylesheet", href="/public/assets/dialog.css")
+        link(href="https://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,200,100", rel='stylesheet', type='text/css')
+        script(src="/public/scripts/bookScript.js")
+    body
+        div.mainWindow
+            div.mainWindow-frame
+                nav.menu
+                    div.menu-container
+                        div.menu-btn
+                            i.fa.fa-home.fa-1x(aria-hidden=true)
+                            a(href="http://localhost:8080/home") Home
+                        div.menu-btn
+                            i.fa.fa-book.fa-1x(aria-hidden=true)
+                            a(href="http://localhost:8080/catalog") Catalog
+                header
+                    div.header-left
+                        p Book's page
+                div.listBlock
+                     each value, prop in book
+                        if prop === 'id'
+                            div.book-item#elemBookID
+                                div.book-item-prop
+                                    p.normal= bookFieldsHeaders[index] + ':    '
+                                    p.cursive#id= value
+                        else if !reader && prop === 'readerID'
+                            div.book-item.extra
+                                div.book-item-prop
+                                    p.normal= bookFieldsHeaders[index] + ':'
+                                    p.cursive#notHasReader No
+                                div.book-item-btn
+                                    i.fa.fa-hand-paper-o.fa-1x(aria-hidden=true)
+                                    button(onClick='openHandOutModal()') Hand out
+                            div.book-item.extra
+                                div.book-item-prop
+                                    p.normal= bookFieldsHeaders[index+2] + ':'
+                                    p.cursive#inStock Yes
+                        else if reader && prop === 'readerID'
+                            div.book-item.extra
+                                div.book-item-prop
+                                    p.normal= bookFieldsHeaders[index] + ':'
+                                    p.cursive#hasReader Yes
+                                div.book-item-btn#hasReaderBtns
+                                    i.fa.fa-info-circle.fa-1x(aria-hidden=true)
+                                    button(onClick=`openReaderInfo(${value})`) Details
+                                    i.fa.fa-undo.fa-1x(aria-hidden=true)
+                                    button(onClick='returnBook()') Return
+                            div.book-item.extra
+                                div.book-item-prop
+                                    p.normal= bookFieldsHeaders[index+2] + ':'
+                                    p.cursive#notInStock No
+                        else if reader && prop === 'returnDate'
+                            div.book-item.extra#returnDateElem
+                                div.book-item-prop
+                                    p.normal= bookFieldsHeaders[index] + ':'
+                                    p.cursive#bookReturnDate= value
+                        else if prop !== 'returnDate'
+                            div.book-item
+                                div.book-item-prop
+                                    p.normal= bookFieldsHeaders[index] + ':    '
+                                    p.cursive= value
+                        -index++
+                button.returnToCatalog(onClick="returnToCatalog()") Back to catalog
+                include ./includes/readerModal.pug
+                include ./includes/handOutModal.pug

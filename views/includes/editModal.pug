@@ -1,0 +1,29 @@
+dialog#modal-window
+    div.modal.modal-window
+        div.modal-content
+            div.modal-controls
+                p.modal-header#modalHeader
+                button.controls-btn-close(onClick="closeModal(this)")
+                    i.fa.fa-times-circle-o.fa-2x(aria-hidden=true)
+            div.modal-info
+                div.modal-info-item
+                    p Book ID:
+                    input(type="text", disabled)#id
+                div.modal-info-item
+                    p Title:
+                    input(type="text", required)#title
+                div.modal-info-item
+                    p Author:
+                    input(type="text")#author
+                div.modal-info-item
+                    p Release Date:
+                    input(type="date")#releaseDate
+                div.modal-info-item
+                    p Reader:
+                    select#reader-select
+                div.modal-info-item
+                    p Return Date:
+                    input(type="date")#returnDate
+                div#validation-error
+                button(class="buttonModal", onclick="getModalData('add-book')")#addBtn
+                button(class="buttonModal", onclick="getModalData('edit-book')")#editBtn

@@ -1,0 +1,99 @@
+#reader-modal, #modal-window, #handout-modal {
+    display: none;
+}
+.modal, dialog {
+    position: fixed;
+    background-color: #A5A0A0;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.5);
+}
+.reader-modal, .modal-window{
+    width: 30%;
+    height: 20%;
+    min-height: 323px;
+    min-width: 380px;
+    margin: auto;
+    top:   38%;
+    left:35%;
+}
+.handout-modal, .reader-modal {
+    width: 30%;
+    height: 20%;
+    min-height: 245px;
+    min-width: 380px;
+    margin: auto;
+    top:   38%;
+    left:35%;
+}
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    color: #FFFFFF;
+    width: 100%;
+}
+.modal-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.controls-btn-close {
+    background-color: inherit;
+    width: 5%;
+    margin-right: -3%;
+    margin-top: -13%;
+}
+.controls-btn-close:hover{
+    transform: translateY(-3px);
+}
+.controls-btn-close:active{
+    transform: translateY(0);
+}
+.modal-header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    width: 95%;
+    margin-bottom: 20px;
+}
+.modal-info {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.modal-info-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+.modal-info-item > p {
+    font-style: italic;
+}
+.buttonModal {
+    align-self: center;
+    display: block;
+    background-color: inherit;
+    border: #FFFFFF 3px solid;
+    border-radius: 6px;
+    padding: 5px 30px;
+    font: inherit;
+    color: #FFFFFF;
+    margin-top: 10px;
+}
+
+.buttonModal:hover {
+    background-color: #A9A9B9;
+    transform: translateY(-3px);
+}
+.buttonModal:active {
+    background-color: #848491;
+    transform: translateY(1px);
+}
+.modal-info-item > input {
+    padding: 0 4px;
+}
